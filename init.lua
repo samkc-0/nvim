@@ -24,4 +24,4 @@ vim.cmd("set number")
 
 -- theme
 vim.o.background = "dark"
-vim.cmd([[colorscheme monokai-pro]])
+vim.cmd([[colorscheme nord]])
