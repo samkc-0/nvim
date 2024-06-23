@@ -24,4 +24,4 @@ vim.cmd("set number")
 
 -- theme
 vim.o.background = "dark"
-vim.cmd([[colorscheme nord]])
+vim.cmd([[colorscheme wildcharm]])
