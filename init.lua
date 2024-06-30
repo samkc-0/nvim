@@ -25,4 +25,6 @@ vim.cmd("set scrolloff=8")
 
 -- theme
 vim.o.background = "dark"
-vim.cmd([[colorscheme wildcharm]])
+vim.cmd([[colorscheme gruvbox]])
+
+-- NOTE: some favorite builtin themes are wildcharm and desert.
