@@ -7,11 +7,12 @@ local lsps = {
 	"gopls",
 	"html",
 	"tailwindcss",
-	"tsserver",
+	"ts_ls",
 	"lemminx",
 	"rust_analyzer",
 	"sqlls",
 	"csharp_ls",
+  "emmet_ls",
 }
 
 return {
