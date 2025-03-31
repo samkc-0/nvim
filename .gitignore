@@ -1,0 +1,22 @@
+# compiled plugins, cached data
+/lazy-lock.json
+/lazy/
+/plugin/packer_compiled.lua
+
+# LSP + plugin caches
+/.cache/
+/.nvimlog
+
+# swap + undo + backups
+*.swp
+*.swo
+*.un~
+*.bak
+
+# lua-language-server metadata
+/.luarc.json
+/.luarc.jsonc
+
+# os cruft
+.DS_Store
+Thumbs.db
