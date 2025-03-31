@@ -9,7 +9,7 @@ clean, modular neovim setup built from scratch. plugins are opt-in, filetype-spe
 ### clone into nvim config directory
 
 ```sh
-git clone https://github.com/YOURNAME/nvim ~/.config/nvim
+git clone https://github.com/samkc-0/nvim ~/.config/nvim
 chmod +x setup.sh
 ./setup.sh
 ```
