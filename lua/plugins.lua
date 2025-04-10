@@ -73,4 +73,114 @@ require("lazy").setup({
 			end)
 		end,
 	},
+
+	-- treesitter
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = {
+					"lua",
+					"bash",
+					"go",
+					"python",
+					"json",
+					"markdown",
+					"vim",
+					"html",
+					"css",
+					"javascript",
+				},
+				highlight = { enable = true },
+				indent = { enable = true },
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+						init_selection = "<CR>",
+						node_incremental = "<CR>",
+						scope_incremental = "<S-CR>",
+						node_decremental = "<BS>",
+					},
+				},
+				textobjects = {
+					select = {
+						enable = true,
+						lookahead = true,
+						keymaps = {
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
+							["ac"] = "@class.outer",
+							["ic"] = "@class.inner",
+							["ap"] = "@parameter.outer",
+							["ip"] = "@parameter.inner",
+						},
+					},
+					move = {
+						enable = true,
+						set_jumps = true,
+						goto_next_start = {
+							["]f"] = "@function.outer",
+						},
+						goto_previous_start = {
+							["[f"] = "@function.outer",
+						},
+					},
+				},
+			})
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter-textobjects",
+		},
+	},
+	-- mason
+	{
+		"williamboman/mason.nvim",
+		config = true,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		dependencies = {
+			"williamboman/mason.nvim",
+			"neovim/nvim-lspconfig",
+		},
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"lua_ls",
+					"bashls",
+					"gopls", -- if you're planning Go support
+					"ts_ls",
+					"tailwindcss",
+					"html",
+				},
+				automatic_installation = true,
+			})
+
+			local lspconfig = require("lspconfig")
+
+			-- lua
+			lspconfig.lua_ls.setup({
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { "vim" },
+						},
+					},
+				},
+			})
+
+			-- bash
+			lspconfig.bashls.setup({})
+
+			-- go (optional)
+			lspconfig.gopls.setup({})
+		end,
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.8",
+		-- or                              , branch = '0.1.x',
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 })
