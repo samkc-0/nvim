@@ -11,7 +11,4 @@ clean, modular neovim setup built from scratch. plugins are opt-in, filetype-spe
 ```sh
 cd ~/.config/
 git clone https://github.com/samkc-0/nvim
-cd nvim
-chmod +x setup.sh
-./setup.sh
 ```
