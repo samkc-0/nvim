@@ -3,7 +3,13 @@ require("plugins")
 vim.cmd("syntax on")
 vim.cmd("filetype plugin indent on")
 vim.cmd.colorscheme("elflord")
+local hour = tonumber(os.date("%H"))
 
+if hour >= 7 and hour < 19 then
+	vim.cmd.colorscheme("elflord") -- day theme
+else
+	vim.cmd.colorscheme("default") -- night theme
+end
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
@@ -20,7 +26,7 @@ vim.keymap.set("n", "<leader><CR>", function()
 	print("reloaded config 🔁")
 end)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
-
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 -- telescope keymaps
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
