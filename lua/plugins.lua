@@ -198,4 +198,8 @@ require("lazy").setup({
 		-- or                              , branch = '0.1.x',
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
+	{
+		"Exafunction/windsurf.vim",
+		event = "BufEnter",
+	},
 })
