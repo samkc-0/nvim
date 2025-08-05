@@ -27,6 +27,16 @@ vim.keymap.set("n", "<leader><CR>", function()
 end)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set("n", "<leader>ce", function()
+	vim.cmd.CodeiumEnable()
+	print("🦾 llm completions enabled")
+end, { desc = "toggle codeium" })
+
+vim.keymap.set("n", "<leader>cd", function()
+	vim.cmd.CodeiumDisable()
+	print("🔌 llm completions disabled")
+end, { desc = "toggle codeium" })
+
 -- telescope keymaps
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
