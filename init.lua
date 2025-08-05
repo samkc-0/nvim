@@ -1,5 +1,4 @@
 require("plugins")
-
 vim.cmd("syntax on")
 vim.cmd("filetype plugin indent on")
 vim.cmd.colorscheme("elflord")
@@ -30,12 +29,12 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action
 vim.keymap.set("n", "<leader>ce", function()
 	vim.cmd.CodeiumEnable()
 	print("🦾 llm completions enabled")
-end, { desc = "toggle codeium" })
+end, { desc = "enable codeium" })
 
 vim.keymap.set("n", "<leader>cd", function()
 	vim.cmd.CodeiumDisable()
 	print("🔌 llm completions disabled")
-end, { desc = "toggle codeium" })
+end, { desc = "disable codeium" })
 
 -- telescope keymaps
 local builtin = require("telescope.builtin")
