@@ -1,4 +1,4 @@
-# 🌀 minimal neovim config
+# 🌀 neovim config
 
 ## 🛠️ install
 
