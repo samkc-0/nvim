@@ -147,7 +147,14 @@ require("lazy").setup({
 	-- mason
 	{
 		"williamboman/mason.nvim",
-		config = true,
+		config = function()
+			require("mason").setup({
+				registries = {
+					"github:mason-org/mason-registry",
+					"github:Crashdummyy/mason-registry",
+				},
+			})
+		end,
 	},
 	{
 		"williamboman/mason-lspconfig.nvim",
