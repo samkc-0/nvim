@@ -201,6 +201,9 @@ require("lazy").setup({
 					python = { analysis = { diagnosticMode = "workspace" } },
 				},
 			})
+
+			lspconfig.ts_ls.setup({})
+			lspconfig.tailwindcss.setup({})
 		end,
 	},
 	{
