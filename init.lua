@@ -7,7 +7,7 @@ local hour = tonumber(os.date("%H"))
 if hour >= 7 and hour < 19 then
 	vim.cmd.colorscheme("elflord") -- day theme
 else
-	vim.cmd.colorscheme("slate") -- night theme
+	vim.cmd.colorscheme("wildcharm") -- night theme
 end
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
