@@ -13,6 +13,8 @@ end
 
 vim.cmd.colorscheme("vim")
 
+vim.cmd([[highlight Pmenu guibg=none]])
+
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
