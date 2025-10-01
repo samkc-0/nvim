@@ -69,7 +69,7 @@ require("lazy").setup({
 				javascriptreact = { "prettier" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
-				json = { "prettier " },
+				json = { "prettier" },
 				markdown = { "prettier" },
 				css = { "prettier" },
 				html = { "prettier" },
