@@ -3,17 +3,11 @@ vim.cmd("syntax on")
 vim.cmd("filetype plugin indent on")
 local hour = tonumber(os.date("%H"))
 
-function use_colorscheme()
-	if hour >= 7 and hour < 19 then
-		vim.cmd.colorscheme("elflord") -- day theme
-	else
-		vim.cmd.colorscheme("wildcharm") -- night theme
-	end
+if hour >= 7 and hour < 19 then
+	vim.cmd.colorscheme("desert") -- day theme
+else
+	vim.cmd.colorscheme("wildcharm") -- night theme
 end
-
-vim.cmd.colorscheme("vim")
-
-vim.cmd([[highlight Pmenu guibg=none]])
 
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
