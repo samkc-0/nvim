@@ -62,7 +62,7 @@ require("lazy").setup({
 				lsp_fallback = true,
 			},
 			formatters_by_ft = {
-				lua = { "stylua" },
+				-- lua = { "stylua" },
 				sh = { "shfmt" },
 				python = { "black" },
 				go = { "gofmt" },
@@ -179,10 +179,8 @@ require("lazy").setup({
 				automatic_installation = true,
 			})
 
-			local lspconfig = require("lspconfig")
-
 			-- lua
-			lspconfig.lua_ls.setup({
+			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -193,20 +191,21 @@ require("lazy").setup({
 			})
 
 			-- bash
-			lspconfig.bashls.setup({})
+			vim.lsp.config("bashls", {})
 
 			-- go (optional)
-			lspconfig.gopls.setup({})
+			vim.lsp.config("gopls", {})
 
 			--python
-			lspconfig.pyright.setup({
+			vim.lsp.config("pyright", {
 				settings = {
 					python = { analysis = { diagnosticMode = "workspace" } },
 				},
 			})
 
-			lspconfig.ts_ls.setup({})
-			lspconfig.tailwindcss.setup({})
+			vim.lsp.config("css", {})
+			vim.lsp.config("html", {})
+			vim.lsp.config("tailwindcss", {})
 		end,
 	},
 	{

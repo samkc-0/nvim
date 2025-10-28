@@ -4,9 +4,9 @@ vim.cmd("filetype plugin indent on")
 local hour = tonumber(os.date("%H"))
 
 if hour >= 7 and hour < 19 then
-	vim.cmd.colorscheme("industry") -- day theme
+  vim.cmd.colorscheme("industry") -- day theme
 else
-	vim.cmd.colorscheme("wildcharm") -- night theme
+  vim.cmd.colorscheme("wildcharm") -- night theme
 end
 
 vim.opt.tabstop = 2
@@ -20,19 +20,19 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Vex)
 vim.keymap.set("n", "<leader>ps", vim.cmd.Sex)
 vim.keymap.set("n", "<leader><CR>", function()
-	vim.cmd("source ~/.config/nvim/init.lua")
-	print("reloaded config 🔁")
+  vim.cmd("source ~/.config/nvim/init.lua")
+  print("reloaded config 🔁")
 end)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
 vim.keymap.set("n", "<leader>ce", function()
-	vim.cmd.CodeiumEnable()
-	print("🦾 llm completions enabled")
+  vim.cmd.CodeiumEnable()
+  print("🦾 llm completions enabled")
 end, { desc = "enable codeium" })
 
 vim.keymap.set("n", "<leader>cd", function()
-	vim.cmd.CodeiumDisable()
-	print("🔌 llm completions disabled")
+  vim.cmd.CodeiumDisable()
+  print("🔌 llm completions disabled")
 end, { desc = "disable codeium" })
 
 -- telescope keymaps
@@ -47,30 +47,30 @@ vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Go to below split" })
 vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Go to above split" })
 vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Go to right split" })
 vim.keymap.set("n", "<leader>dl", function()
-	vim.diagnostic.setloclist()
+  vim.diagnostic.setloclist()
 end)
 
 vim.diagnostic.config({
-	virtual_text = true,
-	signs = true,
-	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
+  virtual_text = true,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.sh", "*.bash", "*.zsh" },
-	callback = function()
-		vim.bo.filetype = "sh"
-	end,
+  pattern = { "*.sh", "*.bash", "*.zsh" },
+  callback = function()
+    vim.bo.filetype = "sh"
+  end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	callback = function(args)
-		local ft = vim.bo[args.buf].filetype
-		local ok, _ = pcall(require, "ftplugin." .. ft)
-		if not ok then
-			-- no custom config for this filetype
-		end
-	end,
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    local ok, _ = pcall(require, "ftplugin." .. ft)
+    if not ok then
+      -- no custom config for this filetype
+    end
+  end,
 })
