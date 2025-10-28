@@ -4,7 +4,7 @@ vim.cmd("filetype plugin indent on")
 local hour = tonumber(os.date("%H"))
 
 if hour >= 7 and hour < 19 then
-	vim.cmd.colorscheme("desert") -- day theme
+	vim.cmd.colorscheme("industry") -- day theme
 else
 	vim.cmd.colorscheme("wildcharm") -- night theme
 end
@@ -16,7 +16,7 @@ vim.opt.number = true
 vim.opt.scrolloff = 8
 vim.opt.clipboard:append("unnamed")
 vim.g.mapleader = " "
-vim.keymap.set("i", "jk", "<Esc>")
+--vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>pv", vim.cmd.Vex)
 vim.keymap.set("n", "<leader>ps", vim.cmd.Sex)
 vim.keymap.set("n", "<leader><CR>", function()
@@ -49,6 +49,7 @@ vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Go to right split" })
 vim.keymap.set("n", "<leader>dl", function()
 	vim.diagnostic.setloclist()
 end)
+
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,

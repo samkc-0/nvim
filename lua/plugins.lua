@@ -44,10 +44,11 @@ require("lazy").setup({
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
 					["<C-Space>"] = cmp.mapping.complete(),
 				}),
-				sources = {
+				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
+					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" },
-				},
+				}),
 			})
 		end,
 	},
@@ -232,5 +233,18 @@ require("lazy").setup({
 			end, { expr = true, silent = true })
 		end,
 		event = "BufEnter",
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "InsertEnter",
+		opts = {
+			bind = true,
+			handler_opts = {
+				border = "rounded",
+			},
+		},
+		config = function(_, opts)
+			require("lsp_signature").setup(opts)
+		end,
 	},
 })
