@@ -4,7 +4,7 @@ vim.cmd("filetype plugin indent on")
 local hour = tonumber(os.date("%H"))
 
 if hour >= 7 and hour < 19 then
-  vim.cmd.colorscheme("industry") -- day theme
+  vim.cmd.colorscheme("industry")  -- day theme
 else
   vim.cmd.colorscheme("wildcharm") -- night theme
 end
@@ -25,15 +25,6 @@ vim.keymap.set("n", "<leader><CR>", function()
 end)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-vim.keymap.set("n", "<leader>ce", function()
-  vim.cmd.CodeiumEnable()
-  print("🦾 llm completions enabled")
-end, { desc = "enable codeium" })
-
-vim.keymap.set("n", "<leader>cd", function()
-  vim.cmd.CodeiumDisable()
-  print("🔌 llm completions disabled")
-end, { desc = "disable codeium" })
 
 -- telescope keymaps
 local builtin = require("telescope.builtin")
